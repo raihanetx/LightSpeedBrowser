@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lightspeed.browser.BrowserApplication
+import com.lightspeed.browser.R
 import com.lightspeed.browser.data.db.entities.HistoryEntry
 import com.lightspeed.browser.databinding.ActivityHistoryBinding
 import kotlinx.coroutines.Dispatchers
