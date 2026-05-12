@@ -46,7 +46,7 @@ android {
         jvmTarget = "17"
         // Enable explicit API for better code generation
         freeCompilerArgs += listOf(
-            "-Xopt-in=kotlin.RequiresOptIn",
+            "-opt-in=kotlin.RequiresOptIn",
             "-Xjvm-default=all"  // Generate default methods in interfaces
         )
     }
