@@ -18,5 +18,5 @@ class ServiceLocator(private val appContext: Context) {
     val bookmarkDao: BookmarkDao by lazy { database.bookmarkDao() }
     val historyDao: HistoryDao by lazy { database.historyDao() }
 
-    val adBlocker: AdBlocker by lazy { AdBlocker(appContext) }
+    val adBlocker: AdBlocker by lazy { AdBlocker() }
 }

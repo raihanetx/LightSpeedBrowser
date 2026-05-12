@@ -5,12 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lightspeed.browser.BrowserApplication
-import com.lightspeed.browser.R
 import com.lightspeed.browser.data.db.entities.HistoryEntry
 import com.lightspeed.browser.databinding.ActivityHistoryBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class HistoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHistoryBinding
@@ -27,7 +30,7 @@ class HistoryActivity : AppCompatActivity() {
             override fun onCreateViewHolder(p: ViewGroup, vt: Int) = object : RecyclerView.ViewHolder(
                 layoutInflater.inflate(android.R.layout.simple_list_item_2, p, false)
             ) { init { itemView.setOnClickListener {
-                items.getOrNull(adapterPosition)?.let { e ->
+                items.getOrNull(bindingAdapterPosition)?.let { e ->
                     intent.putExtra("url", e.url); setResult(RESULT_OK, intent); finish()
                 }
             }}}
@@ -41,9 +44,11 @@ class HistoryActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
 
-        services.historyDao.getAllHistory().observe(this) { list ->
-            adapter.items = list; adapter.notifyDataSetChanged()
-            binding.emptyState.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
+        lifecycleScope.launch(Dispatchers.Main) {
+            services.historyDao.getAllHistory().collectLatest { list ->
+                adapter.items = list; adapter.notifyDataSetChanged()
+                binding.emptyState.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
+            }
         }
     }
 }

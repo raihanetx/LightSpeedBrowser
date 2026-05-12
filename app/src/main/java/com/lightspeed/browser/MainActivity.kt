@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.view.ViewGroup
 import android.webkit.*
 import android.widget.PopupMenu
 import android.widget.Toast
@@ -73,15 +74,6 @@ class MainActivity : AppCompatActivity() {
             applyCookiePolicy()
         }
         binding.webViewContainer.addView(webView)
-
-        // Enable onBackPressedCallback for API 33+
-        if (Build.VERSION.SDK_INT >= 33) {
-            onBackInvokedDispatcher.registerOnBackInvokedCallback(
-                androidx.activity.OnBackInvokedDispatcher.PRIORITY_DEFAULT
-            ) {
-                if (webView.canGoBack()) webView.goBack() else finish()
-            }
-        }
     }
 
     private fun createWebViewClient(): WebViewClient = object : WebViewClient() {
