@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme — minimal, no heavy customizations -->
+    <style name="Theme.LightSpeed" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/primary</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <!-- Disable window animations for faster transitions -->
+        <item name="android:windowAnimationStyle">@null</item>
+
+        <!-- No action bar — we build our own toolbar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Incognito theme -->
+    <style name="Theme.LightSpeed.Incognito" parent="Theme.LightSpeed">
+        <item name="android:windowBackground">@color/incognito_background</item>
+        <item name="colorPrimary">@color/incognito_background</item>
+        <item name="colorPrimaryDark">@color/incognito_background</item>
+        <item name="android:statusBarColor">@color/incognito_background</item>
+        <item name="android:navigationBarColor">@color/incognito_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+    <!-- Splash screen theme -->
+    <style name="Theme.LightSpeed.Splash" parent="Theme.LightSpeed">
+        <item name="android:windowBackground">@color/primary</item>
+    </style>
+</resources>

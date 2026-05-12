@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Toolbar layout — flat ConstraintLayout hierarchy.
+
+    ┌─────────────────────────────────────────────┐
+    │ [<] [>]  │  [◉] Search or enter URL  [↻] [≡] │
+    └─────────────────────────────────────────────┘
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp"
+    android:background="@color/surface">
+
+    <!-- Back button -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_media_previous"
+        android:contentDescription="@string/action_back"
+        android:scaleType="center"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Forward button -->
+    <ImageButton
+        android:id="@+id/forwardButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_media_next"
+        android:contentDescription="@string/action_forward"
+        android:scaleType="center"
+        android:padding="8dp"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Lock/Secure icon -->
+    <ImageView
+        android:id="@+id/lockIcon"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@android:drawable/ic_menu_search"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/forwardButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="8dp" />
+
+    <!-- URL bar -->
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/urlBar"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/url_bar_background"
+        android:hint="@string/url_bar_hint"
+        android:inputType="textUri"
+        android:imeOptions="actionGo"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="14sp"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_secondary"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:gravity="center_vertical"
+        android:importantForAutofill="no"
+        app:layout_constraintStart_toEndOf="@+id/forwardButton"
+        app:layout_constraintEnd_toStartOf="@+id/refreshButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp" />
+
+    <!-- Refresh / Stop button -->
+    <ImageButton
+        android:id="@+id/refreshButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_rotate"
+        android:contentDescription="@string/action_refresh"
+        android:scaleType="center"
+        android:padding="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/menuButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Menu / Overflow button -->
+    <ImageButton
+        android:id="@+id/menuButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_more"
+        android:contentDescription="@string/action_menu"
+        android:scaleType="center"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

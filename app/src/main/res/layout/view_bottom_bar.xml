@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="44dp"
+    android:orientation="horizontal" android:gravity="center_vertical"
+    android:background="@color/background" android:paddingStart="4dp" android:paddingEnd="4dp">
+
+    <ImageButton android:id="@+id/backButton" android:layout_width="0dp" android:layout_height="match_parent"
+        android:layout_weight="1" android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_media_previous" android:contentDescription="Back"
+        android:scaleType="center" android:padding="10dp" />
+    <ImageButton android:id="@+id/forwardButton" android:layout_width="0dp" android:layout_height="match_parent"
+        android:layout_weight="1" android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_media_next" android:contentDescription="Forward"
+        android:scaleType="center" android:padding="10dp" />
+    <ImageButton android:id="@+id/zoomOutButton" android:layout_width="0dp" android:layout_height="match_parent"
+        android:layout_weight="1" android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_media_rew" android:contentDescription="Zoom out"
+        android:scaleType="center" android:padding="10dp" />
+    <ImageButton android:id="@+id/zoomInButton" android:layout_width="0dp" android:layout_height="match_parent"
+        android:layout_weight="1" android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_media_ff" android:contentDescription="Zoom in"
+        android:scaleType="center" android:padding="10dp" />
+    <ImageButton android:id="@+id/menuButton" android:layout_width="0dp" android:layout_height="match_parent"
+        android:layout_weight="1" android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_more" android:contentDescription="Menu"
+        android:scaleType="center" android:padding="10dp" />
+</LinearLayout>
